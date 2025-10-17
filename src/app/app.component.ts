@@ -32,7 +32,7 @@ export class AppComponent {
   navLinks = [
     { id: 'caracteristicas', name: 'Características' },
     { id: 'por-que-elegirnos', name: '¿Por qué ES360?' },
-    { id: 'testimonios', name: 'Testimonios' },
+    { id: 'clientes', name: 'Clientes' },
     { id: 'faq', name: 'FAQ' },
   ];
 
@@ -106,25 +106,32 @@ export class AppComponent {
 
   caracteristicasVisuales = [
     {
-      titulo: 'Gestión Integral de Alumnos',
+      titulo: 'Gestión Ágil',
       descripcion:
-        'Desde la inscripción hasta el historial académico, todo el ciclo de vida del estudiante en una sola plataforma. Consulta perfiles, asistencias y comportamiento con un solo clic.',
+        'Optimiza cada proceso académico desde la inscripción hasta la graduación. Centraliza la administración de alumnos, asistencias y calificaciones en una sola plataforma intuitiva. Accede a historiales académicos, reportes personalizados y métricas en tiempo real, permitiendo una gestión escolar moderna, rápida y completamente digital.',
       imagen:
-        'https://placehold.co/600x450/34d399/ffffff?text=Gesti%C3%B3n+de+Alumnos',
+        'https://i.pinimg.com/736x/7f/8a/61/7f8a619f310c134ec6f0b69e3678e0e4.jpg',
     },
     {
-      titulo: 'Portal Unificado de Comunicación',
+      titulo: 'Decisiones Inteligentes',
       descripcion:
-        'Fortalece el lazo entre escuela y hogar. Envía comunicados masivos, mensajes directos y notificaciones push para mantener a padres y alumnos siempre informados.',
+        'Convierte los datos en información útil para mejorar el desempeño institucional. Analiza tendencias académicas, mide la eficiencia de los programas y toma decisiones estratégicas con base en reportes automáticos y dashboards inteligentes. La plataforma transforma la gestión educativa en un proceso basado en evidencia y resultados.',
       imagen:
-        'https://placehold.co/600x450/60a5fa/ffffff?text=Portal+de+Comunicaci%C3%B3n',
+        'https://i.pinimg.com/736x/c8/1b/5e/c81b5e82ad71e9b8c97b5b70918ddc16.jpg',
     },
     {
-      titulo: 'Calificaciones y Reportes en Tiempo Real',
+      titulo: 'Conexión Constante',
       descripcion:
-        'Transparencia académica total. Los docentes registran calificaciones que se reflejan al instante en el portal de padres y alumnos, facilitando el seguimiento continuo.',
+        'Fortalece la comunicación entre docentes, padres y estudiantes con canales unificados. Envía comunicados, recordatorios y notificaciones en tiempo real para mantener a toda la comunidad educativa informada. La transparencia y el acceso inmediato a la información fortalecen el vínculo escuela-hogar y promueven una participación activa.',
       imagen:
-        'https://placehold.co/600x450/f59e0b/ffffff?text=Calificaciones+en+Vivo',
+        'https://i.pinimg.com/1200x/b3/0a/c9/b30ac9a7ac72be3e593c6d5a868b9d2f.jpg',
+    },
+    {
+      titulo: 'Seguridad Total',
+      descripcion:
+        'Protege los datos y la privacidad de tu institución con protocolos avanzados de seguridad digital. Toda la información académica, administrativa y personal se almacena con cifrado de alto nivel y respaldo continuo. La plataforma garantiza el cumplimiento de normas de protección de datos y un entorno confiable para todos los usuarios.',
+      imagen:
+        'https://i.pinimg.com/1200x/81/fb/b4/81fbb492e2d4f9c44ae4da64326e8dad.jpg',
     },
   ];
 
@@ -199,6 +206,34 @@ export class AppComponent {
       pregunta: '¿Puedo personalizar la plataforma con el logo de mi escuela?',
       respuesta:
         '¡Por supuesto! Ofrecemos opciones de personalización para que la plataforma refleje la identidad visual de tu institución y se sienta como una herramienta propia.',
+    },
+  ];
+
+  clients = [
+    {
+      name: 'Universidad Nacional Autónoma de México',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Escudo-UNAM-escalable.svg/1822px-Escudo-UNAM-escalable.svg.png',
+    },
+    {
+      name: 'Universidad autonoma de queretaro',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/c/c6/EscudoDeLaUAQ.jpg',
+    },
+    {
+      name: 'Universidad Nacional Autónoma de México',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Escudo-UNAM-escalable.svg/1822px-Escudo-UNAM-escalable.svg.png',
+    },
+    {
+      name: 'Universidad autonoma de queretaro',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/c/c6/EscudoDeLaUAQ.jpg',
+    },
+    {
+      name: 'Universidad Nacional Autónoma de México',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Escudo-UNAM-escalable.svg/1822px-Escudo-UNAM-escalable.svg.png',
     },
   ];
 
