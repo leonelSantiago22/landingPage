@@ -5,7 +5,7 @@
   >
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#" class="text-2xl font-bold text-gray-900">
-        <img src="logoCE.png" alt="CE360 Logo" class="w-80 md:w-20" />
+        <img src="logoCE.png" alt="CE360 Logo" class="w-30 md:w-20" />
       </a>
 
       <!-- Menú para Escritorio -->
@@ -22,12 +22,27 @@
           {{ link.name }}
         </a>
         }
-        <a
-          href="mailto:contacto@CE360.com"
-          class="bg-teal-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-teal-700 transition-all duration-300 transform hover:scale-105"
-        >
-          Contacto
-        </a>
+        <div class="flex items-center">
+          <a
+            href="mailto:contacto@CE360.com"
+            class="hidden md:flex items-center justify-center overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer z-10 group"
+          >
+            Contacto
+            <span
+              class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"
+            ></span>
+            <span
+              class="absolute w-36 h-32 -top-8 -left-2 bg-yellow-500 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"
+            ></span>
+            <span
+              class="absolute w-36 h-32 -top-8 -left-2 bg-yellow-600 rotate-12 transform scale-x-0 group-hover:scale-x-50 transition-transform group-hover:duration-1000 duration-500 origin-left"
+            ></span>
+            <span
+              class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+              >Correo</span
+            >
+          </a>
+        </div>
       </div>
 
       <!-- Botón de Menú para Móvil -->
