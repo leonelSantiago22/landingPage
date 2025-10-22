@@ -109,58 +109,55 @@ export class AppComponent {
       titulo: 'Gestión Ágil',
       descripcion:
         'Optimiza cada proceso académico desde la inscripción hasta la graduación. Centraliza la administración de alumnos, asistencias y calificaciones en una sola plataforma intuitiva. Accede a historiales académicos, reportes personalizados y métricas en tiempo real, permitiendo una gestión escolar moderna, rápida y completamente digital.',
-      imagen:
-        'https://i.pinimg.com/736x/7f/8a/61/7f8a619f310c134ec6f0b69e3678e0e4.jpg',
+      imagen: 'gestionInteligente.webp',
     },
     {
       titulo: 'Decisiones Inteligentes',
       descripcion:
         'Convierte los datos en información útil para mejorar el desempeño institucional. Analiza tendencias académicas, mide la eficiencia de los programas y toma decisiones estratégicas con base en reportes automáticos y dashboards inteligentes. La plataforma transforma la gestión educativa en un proceso basado en evidencia y resultados.',
-      imagen:
-        'https://i.pinimg.com/736x/c8/1b/5e/c81b5e82ad71e9b8c97b5b70918ddc16.jpg',
+      imagen: 'decisionesInteligentes.webp',
     },
     {
       titulo: 'Conexión Constante',
       descripcion:
         'Fortalece la comunicación entre docentes, padres y estudiantes con canales unificados. Envía comunicados, recordatorios y notificaciones en tiempo real para mantener a toda la comunidad educativa informada. La transparencia y el acceso inmediato a la información fortalecen el vínculo escuela-hogar y promueven una participación activa.',
-      imagen:
-        'https://i.pinimg.com/1200x/b3/0a/c9/b30ac9a7ac72be3e593c6d5a868b9d2f.jpg',
+      imagen: 'ConexionConstante.webp',
     },
     {
       titulo: 'Seguridad Total',
       descripcion:
         'Protege los datos y la privacidad de tu institución con protocolos avanzados de seguridad digital. Toda la información académica, administrativa y personal se almacena con cifrado de alto nivel y respaldo continuo. La plataforma garantiza el cumplimiento de normas de protección de datos y un entorno confiable para todos los usuarios.',
-      imagen:
-        'https://i.pinimg.com/1200x/81/fb/b4/81fbb492e2d4f9c44ae4da64326e8dad.jpg',
+      imagen: 'seguridadTotal.webp',
     },
   ];
 
   razones = [
     {
-      titulo: 'Eficiencia Operativa Mejorada',
+      titulo: 'Gestión Académica y Administrativa Completa',
       descripcion:
-        'Automatiza procesos administrativos y académicos, liberando tiempo valioso para que el personal se concentre en la enseñanza y el desarrollo estudiantil.',
+        'Simplifica todo el ciclo de vida estudiantil. Desde un módulo de inscripciones ágil que permite el registro, toma de fotografía y carga de documentos, hasta el control escolar diario y la gestión de calificaciones.',
+      imagen: 'https://placehold.co/500x300/E0F2F1/374151?text=Control+Escolar',
+    },
+    {
+      titulo: 'Administración Financiera y de Salud',
+      descripcion:
+        'Centraliza la información crítica de tus alumnos. Administra las finanzas, pagos y reportes con nuestro módulo financiero, y mantén un registro seguro y accesible de los expedientes médicos de la comunidad estudiantil.',
       imagen:
-        'https://placehold.co/500x300/E0F2F1/374151?text=Flujo+Automatizado',
+        'https://placehold.co/500x300/FEE2E2/374151?text=Finanzas+y+Salud',
     },
     {
-      titulo: 'Una Comunidad Educativa Conectada',
+      titulo: 'Comunicación y Comunidad Unificada',
       descripcion:
-        'Fortalece la relación entre la escuela y el hogar con herramientas de comunicación instantánea que mantienen a los padres involucrados y a los alumnos informados.',
+        'Fortalece el vínculo entre la institución, los docentes y los padres de familia. Utiliza herramientas de comunicación directa para avisos importantes y módulos de publicidad para mantener a todos informados sobre eventos.',
       imagen:
-        'https://placehold.co/500x300/C7D2FE/374151?text=Comunicaci%C3%B3n+Fluida',
+        'https://placehold.co/500x300/C7D2FE/374151?text=Comunicaci%C3%B3n',
     },
     {
-      titulo: 'Decisiones Basadas en Datos',
+      titulo: 'Ecosistema de Recursos Centralizado',
       descripcion:
-        'Utiliza nuestro panel de analíticas para monitorear el rendimiento, la asistencia y otros indicadores clave, permitiendo tomar decisiones informadas para la mejora continua.',
-      imagen: 'https://placehold.co/500x300/FDE68A/374151?text=Anal%C3%ADticas',
-    },
-    {
-      titulo: 'Plataforma Escalable y Segura',
-      descripcion:
-        'ES360 crece junto a tu institución. Nuestra infraestructura robusta y segura garantiza que los datos de tu comunidad estén siempre protegidos y disponibles.',
-      imagen: 'https://placehold.co/500x300/FECACA/374151?text=Seguridad',
+        'Ofrece más que solo gestión. Brinda acceso a una biblioteca digital, genera reportes detallados por curso o área y toma decisiones basadas en datos reales. Todo en una plataforma robusta y escalable.',
+      imagen:
+        'https://placehold.co/500x300/FDE68A/374151?text=Biblioteca+y+Datos',
     },
   ];
 
