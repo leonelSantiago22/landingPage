@@ -257,10 +257,10 @@
       <div class="container mx-auto px-6">
         @for (caracteristica of caracteristicasVisuales; track caracteristica;
         let i = $index) {
-        <div class="flex flex-wrap items-center mb-10">
+        <div class="flex flex-wrap items-center mb-16">
           <div
             #animatable
-            class="animate-on-scroll w-full md:w-1/2 p-6"
+            class="animate-on-scroll w-full md:w-1/2 py-6"
             [ngClass]="{ 'md:order-last': i % 2 !== 0 }"
           >
             <h3 class="text-3xl font-bold text-gray-900 mb-4">
@@ -270,11 +270,16 @@
               {{ caracteristica.descripcion }}
             </p>
           </div>
-          <div #animatable class="animate-on-scroll w-full md:w-1/2 p-6">
+
+          <div
+            #animatable
+            class="animate-on-scroll w-full md:w-1/2 p-20 flex justify-start"
+            [ngClass]="{ 'md:justify-end': i % 2 !== 0 }"
+          >
             <img
               [src]="caracteristica.imagen"
               alt="{{ caracteristica.titulo }}"
-              class="image-caracteristicas"
+              class="w-full h-auto md:w-[25rem] md:h-[25rem] object-cover rounded-lg shadow-xl"
             />
           </div>
         </div>
