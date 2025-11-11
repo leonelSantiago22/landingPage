@@ -7,16 +7,24 @@ import {
   ViewChildren,
   AfterViewInit,
   Renderer2,
+  OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'landing-page';
 
   @ViewChildren('section', { read: ElementRef })
@@ -28,17 +36,36 @@ export class AppComponent {
   isMenuOpen = false;
   activeFaqIndex: number | null = null;
   activeSection: string | null = 'home';
+  contactForm!: FormGroup;
+  formSubmitting = false;
+  formSuccess = false;
+  formError = false;
 
   navLinks = [
+    { id: 'beneficios', name: 'Beneficios' },
     { id: 'caracteristicas', name: 'Características' },
-    { id: 'por-que-elegirnos', name: '¿Por qué ES360?' },
+    { id: 'por-que-elegirnos', name: '¿Por qué CE360?' },
     { id: 'clientes', name: 'Clientes' },
     { id: 'faq', name: 'FAQ' },
+    { id: 'contacto', name: 'Contacto' },
   ];
 
   private observer!: IntersectionObserver;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(
+    private renderer: Renderer2,
+    private fb: FormBuilder,
+    private http: HttpClient
+  ) {}
+
+  ngOnInit() {
+    this.contactForm = this.fb.group({
+      nombre: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
+      asunto: ['', Validators.required],
+      mensaje: ['', Validators.required],
+    });
+  }
 
   ngAfterViewInit() {
     const options = {
@@ -61,9 +88,37 @@ export class AppComponent {
     });
   }
 
+  onSubmit() {
+    if (this.contactForm.invalid) {
+      return;
+    }
+
+    this.formSubmitting = true;
+    this.formSuccess = false;
+    this.formError = false;
+
+    const formspreeEndpoint = 'https://formspree.io/f/xvgdolzb';
+
+    this.http
+      .post(formspreeEndpoint, this.contactForm.value, {
+        headers: { Accept: 'application/json' },
+      })
+      .subscribe({
+        next: (response) => {
+          this.formSuccess = true;
+          this.contactForm.reset();
+          this.formSubmitting = false;
+        },
+        error: (error) => {
+          this.formError = true;
+          this.formSubmitting = false;
+        },
+      });
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const scrollPosition = window.scrollY + 100; // Offset to trigger a bit earlier
+    const scrollPosition = window.scrollY + 100;
     let currentSectionId: string | null = 'home';
 
     this.sections.forEach((section) => {
@@ -106,64 +161,87 @@ export class AppComponent {
 
   caracteristicasVisuales = [
     {
-      titulo: 'Gestión Ágil',
+      titulo: 'Visión Directa',
       descripcion:
-        'Optimiza cada proceso académico desde la inscripción hasta la graduación. Centraliza la administración de alumnos, asistencias y calificaciones en una sola plataforma intuitiva. Accede a historiales académicos, reportes personalizados y métricas en tiempo real, permitiendo una gestión escolar moderna, rápida y completamente digital.',
+        'Impulsa el crecimiento institucional con CE360, la plataforma escolar en línea que transforma la gestión académica y administrativa desde una perspectiva directiva. Su enfoque digital permite optimizar recursos, fortalecer el talento humano y generar indicadores claros de eficiencia operativa, rentabilidad y sostenibilidad educativa.',
       imagen: 'gestionInteligente.webp',
     },
     {
       titulo: 'Decisiones Inteligentes',
       descripcion:
-        'Convierte los datos en información útil para mejorar el desempeño institucional. Analiza tendencias académicas, mide la eficiencia de los programas y toma decisiones estratégicas con base en reportes automáticos y dashboards inteligentes. La plataforma transforma la gestión educativa en un proceso basado en evidencia y resultados.',
+        'Transforma la toma de decisiones en un proceso estratégico y continuo. Su arquitectura modular permite a la alta dirección visualizar metas, avances y áreas críticas en tiempo real, facilitando ajustes oportunos y fortaleciendo el liderazgo institucional.',
       imagen: 'decisionesInteligentes.webp',
     },
     {
-      titulo: 'Conexión Constante',
+      titulo: 'Presencia activa',
       descripcion:
-        'Fortalece la comunicación entre docentes, padres y estudiantes con canales unificados. Envía comunicados, recordatorios y notificaciones en tiempo real para mantener a toda la comunidad educativa informada. La transparencia y el acceso inmediato a la información fortalecen el vínculo escuela-hogar y promueven una participación activa.',
+        'Refleja el ritmo operativo de la institución con datos confiables y accesibles en todo momento, fortaleciendo cada acción con información precisa.',
       imagen: 'ConexionConstante.webp',
     },
     {
-      titulo: 'Seguridad Total',
+      titulo: 'Seguridad',
       descripcion:
-        'Protege los datos y la privacidad de tu institución con protocolos avanzados de seguridad digital. Toda la información académica, administrativa y personal se almacena con cifrado de alto nivel y respaldo continuo. La plataforma garantiza el cumplimiento de normas de protección de datos y un entorno confiable para todos los usuarios.',
+        'Protege la información académica, administrativa y personal mediante roles personalizados. Su arquitectura modular y componentes integrados garantizan privacidad, cumplimiento normativo y un entorno confiable, adaptable a las necesidades operativas de cada institución.',
       imagen: 'seguridadTotal.webp',
     },
   ];
 
   razones = [
     {
-      titulo: 'Gestión Académica y Administrativa Completa',
+      titulo: 'Publicidad e inscripciones',
       descripcion:
-        'Simplifica todo el ciclo de vida estudiantil. Desde un módulo de inscripciones ágil que permite el registro, toma de fotografía y carga de documentos, hasta el control escolar diario y la gestión de calificaciones.',
-      imagen: 'https://placehold.co/500x300/E0F2F1/374151?text=Control+Escolar',
+        'Monitorea la eficacia de tus campañas y convierte prospectos en alumnos con inscripciones rápidas y organizadas.',
     },
     {
-      titulo: 'Administración Financiera y de Salud',
+      titulo: 'Control Escolar',
       descripcion:
-        'Centraliza la información crítica de tus alumnos. Administra las finanzas, pagos y reportes con nuestro módulo financiero, y mantén un registro seguro y accesible de los expedientes médicos de la comunidad estudiantil.',
-      imagen:
-        'https://placehold.co/500x300/FEE2E2/374151?text=Finanzas+y+Salud',
+        'Centraliza procesos escolares clave: cambios de grupo, asistencia, reportes, constancias, becas y trámites como servicio social, prácticas y titulación, según el nivel educativo. Todo en un flujo modular, ágil y confiable.',
     },
     {
-      titulo: 'Comunicación y Comunidad Unificada',
+      titulo: 'Asistencia',
       descripcion:
-        'Fortalece el vínculo entre la institución, los docentes y los padres de familia. Utiliza herramientas de comunicación directa para avisos importantes y módulos de publicidad para mantener a todos informados sobre eventos.',
-      imagen:
-        'https://placehold.co/500x300/C7D2FE/374151?text=Comunicaci%C3%B3n',
+        'Registra el ingreso al plantel con credencial, reconocimiento facial o código QR. Control preciso, ágil y automatizado desde el primer acceso.',
     },
     {
-      titulo: 'Ecosistema de Recursos Centralizado',
+      titulo: 'Finanzas',
       descripcion:
-        'Ofrece más que solo gestión. Brinda acceso a una biblioteca digital, genera reportes detallados por curso o área y toma decisiones basadas en datos reales. Todo en una plataforma robusta y escalable.',
-      imagen:
-        'https://placehold.co/500x300/FDE68A/374151?text=Biblioteca+y+Datos',
+        'Centraliza la gestión financiera con control de adeudos, pagos escolares, gastos operativos y cortes de caja. Genera reportes para una administración eficiente.',
+    },
+    {
+      titulo: 'Comunicación',
+      descripcion:
+        'Genera comunicados, avisos y calendario escolar con publicación en la app y notificación por correo. Comunicación ágil y centralizada.',
+    },
+    {
+      titulo: 'Calificaciones',
+      descripcion:
+        'Integra módulos de calificaciones adaptados a cada nivel educativo. Permite registrar, consultar y reportar evaluaciones con criterios configurables, garantizando trazabilidad académica y compatibilidad con diversos modelos escolares.',
+    },
+    {
+      titulo: 'Configuración y seguridad',
+      descripcion:
+        'Permiten parametrizar el sistema según las necesidades institucionales, definiendo accesos, permisos, estructuras operativas y reglas de funcionamiento para cada nivel y usuario.',
+    },
+    {
+      titulo: 'Servicio medico y biblioteca',
+      descripcion:
+        'Registra y organiza de forma precisa la atención médica y el control bibliotecario. Dos módulos auxiliares que fortalecen la trazabilidad institucional y agregan valor operativo al ecosistema CE360.',
+    },
+    {
+      titulo: 'Dirección y corporativo',
+      descripcion:
+        'Generan reportes financieros e informes de inscripción que permiten evaluar el crecimiento institucional y respaldar decisiones con datos precisos y confiables.',
+    },
+    {
+      titulo: 'Módulos para móvil',
+      descripcion:
+        'Ofrece módulos móviles para alumnos y profesores, diseñados para facilitar la consulta de información académica, asistencia, evaluaciones, comunicados y trámites desde cualquier dispositivo. Acceso ágil, seguro y adaptado a cada perfil institucional.',
     },
   ];
 
   testimonios = [
     {
-      cita: 'ES360 ha revolucionado nuestra comunicación interna. Los padres están más involucrados que nunca y la administración es mucho más sencilla.',
+      cita: 'CE360 ha revolucionado nuestra comunicación interna. Los padres están más involucrados que nunca y la administración es mucho más sencilla.',
       nombre: 'Ana María López',
       cargo: 'Directora, Colegio del Sol',
       avatar: 'https://placehold.co/100x100/EED9C4/374151?text=AL',
@@ -184,20 +262,20 @@ export class AppComponent {
 
   faqs = [
     {
-      pregunta: '¿ES360 es seguro para los datos de mis alumnos?',
+      pregunta: '¿CE360 es seguro para los datos de mis alumnos?',
       respuesta:
         'Absolutamente. La seguridad es nuestra máxima prioridad. Utilizamos encriptación de extremo a extremo y servidores seguros para garantizar que toda la información de tu comunidad educativa esté protegida.',
     },
     {
       pregunta: '¿La plataforma requiere una instalación compleja?',
       respuesta:
-        'No. ES360 es una plataforma basada en la nube. No necesitas instalar nada. Solo necesitas un navegador web y acceso a internet para empezar a gestionar tu escuela de inmediato.',
+        'No. CE360 es una plataforma basada en la nube. No necesitas instalar nada. Solo necesitas un navegador web y acceso a internet para empezar a gestionar tu escuela de inmediato.',
     },
     {
       pregunta:
         '¿Ofrecen capacitación para el personal docente y administrativo?',
       respuesta:
-        'Sí. Con cada plan, ofrecemos sesiones de capacitación completas para asegurar que tu equipo aproveche al máximo todas las herramientas que ES360 ofrece. También contamos con tutoriales en video y una base de conocimientos.',
+        'Sí. Con cada plan, ofrecemos sesiones de capacitación completas para asegurar que tu equipo aproveche al máximo todas las herramientas que CE360 ofrece. También contamos con tutoriales en video y una base de conocimientos.',
     },
     {
       pregunta: '¿Puedo personalizar la plataforma con el logo de mi escuela?',
