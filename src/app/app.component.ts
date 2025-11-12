@@ -47,7 +47,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     { id: 'por-que-elegirnos', name: '¿Por qué CE360?' },
     { id: 'clientes', name: 'Clientes' },
     { id: 'faq', name: 'FAQ' },
-    { id: 'contacto', name: 'Contacto' },
   ];
 
   private observer!: IntersectionObserver;
@@ -164,7 +163,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       titulo: 'Visión Directa',
       descripcion:
         'Impulsa el crecimiento institucional con CE360, la plataforma escolar en línea que transforma la gestión académica y administrativa desde una perspectiva directiva. Su enfoque digital permite optimizar recursos, fortalecer el talento humano y generar indicadores claros de eficiencia operativa, rentabilidad y sostenibilidad educativa.',
-      imagen: 'gestionInteligente.webp',
+      imagen: 'visionDirecta.webp',
     },
     {
       titulo: 'Decisiones Inteligentes',
