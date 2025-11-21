@@ -174,7 +174,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     {
       titulo: 'Presencia activa',
       descripcion:
-        'Refleja el ritmo operativo de la institución con datos confiables y accesibles en todo momento, fortaleciendo cada acción con información precisa.',
+        'Refleja el ritmo operativo de la institución con datos confiables y accesibles en do momento, fortaleciendo cada acción con información precisa.',
       imagen: 'ConexionConstante.webp',
     },
     {
@@ -285,29 +285,26 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   clients = [
     {
-      name: 'Universidad Nacional Autónoma de México',
-      imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Escudo-UNAM-escalable.svg/1822px-Escudo-UNAM-escalable.svg.png',
+      name: 'Colegio de matematicas',
+      imageUrl: 'https://www.gob.mx/cms/uploads/image/file/1000100/conamat.png',
     },
     {
-      name: 'Universidad autonoma de queretaro',
+      name: 'GES academico',
       imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/c/c6/EscudoDeLaUAQ.jpg',
+        'https://gesacademico.edu.mx/wp-content/uploads/2021/10/idiomas-ges.webp',
     },
     {
-      name: 'Universidad Nacional Autónoma de México',
-      imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Escudo-UNAM-escalable.svg/1822px-Escudo-UNAM-escalable.svg.png',
+      name: 'Colegio de matematicas',
+      imageUrl: 'https://www.gob.mx/cms/uploads/image/file/1000100/conamat.png',
     },
     {
-      name: 'Universidad autonoma de queretaro',
+      name: 'GES academico',
       imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/c/c6/EscudoDeLaUAQ.jpg',
+        'https://gesacademico.edu.mx/wp-content/uploads/2021/10/idiomas-ges.webp',
     },
     {
-      name: 'Universidad Nacional Autónoma de México',
-      imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Escudo-UNAM-escalable.svg/1822px-Escudo-UNAM-escalable.svg.png',
+      name: 'Colegio de matematicas',
+      imageUrl: 'https://www.gob.mx/cms/uploads/image/file/1000100/conamat.png',
     },
   ];
 
