@@ -495,11 +495,10 @@
         <h2 class="text-4xl font-bold text-gray-800 text-center mb-12">
           Nuestros Clientes
         </h2>
-        <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center"
-        >
+
+        <div class="flex flex-wrap justify-center gap-8 items-center">
           @for (client of clients; track client.name) {
-          <div class="flex justify-center p-4">
+          <div class="flex justify-center p-4 w-1/2 md:w-1/3 lg:w-1/6">
             <img
               [src]="client.imageUrl"
               [alt]="client.name"

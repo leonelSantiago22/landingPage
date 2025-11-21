@@ -42,9 +42,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   formError = false;
 
   navLinks = [
-    { id: 'beneficios', name: 'Beneficios' },
+    { id: 'beneficios', name: '¿Qué es CE360?' },
     { id: 'caracteristicas', name: 'Características' },
-    { id: 'por-que-elegirnos', name: '¿Por qué CE360?' },
+    { id: 'por-que-elegirnos', name: 'Módulos CE360' },
     { id: 'clientes', name: 'Clientes' },
     { id: 'faq', name: 'FAQ' },
   ];
@@ -292,19 +292,6 @@ export class AppComponent implements OnInit, AfterViewInit {
       name: 'GES academico',
       imageUrl:
         'https://gesacademico.edu.mx/wp-content/uploads/2021/10/idiomas-ges.webp',
-    },
-    {
-      name: 'Colegio de matematicas',
-      imageUrl: 'https://www.gob.mx/cms/uploads/image/file/1000100/conamat.png',
-    },
-    {
-      name: 'GES academico',
-      imageUrl:
-        'https://gesacademico.edu.mx/wp-content/uploads/2021/10/idiomas-ges.webp',
-    },
-    {
-      name: 'Colegio de matematicas',
-      imageUrl: 'https://www.gob.mx/cms/uploads/image/file/1000100/conamat.png',
     },
   ];
 
